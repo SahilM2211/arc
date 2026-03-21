@@ -1,0 +1,441 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					}
+				],
+				"name": "TicketDelisted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "TicketListed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					}
+				],
+				"name": "TicketPurchased",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "TicketResold",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					}
+				],
+				"name": "TicketScanned",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ticketId",
+						"type": "uint256"
+					}
+				],
+				"name": "buyResaleTicket",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "buyTicket",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ticketId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelResale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "eventName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTicketsForSale",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "getUserTickets",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_eventName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_ticketPriceWei",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_maxCapacity",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_maxResaleMarkupPercent",
+						"type": "uint256"
+					}
+				],
+				"name": "initializeEvent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ticketId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "listForResale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "maxCapacity",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "maxResaleMarkupPercent",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "organizer",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ticketId",
+						"type": "uint256"
+					}
+				],
+				"name": "scanTicket",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ticketPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tickets",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "isScanned",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isForSale",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "resalePrice",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalTicketsSold",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "userTickets",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawBoxOfficeRevenue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Enterprise-grade Event Ticketing System. Solves: Scalping, Counterfeiting, and Exorbitant Fees. * Features: 1. Fixed primary market price. 2. Capped secondary market (e.g., max 10% markup). 3. Peer-to-peer (OTC) transfers are blocked to enforce the price cap. 4. Secure check-in system for event organizers.",
+			"kind": "dev",
+			"methods": {
+				"buyResaleTicket(uint256)": {
+					"details": "4. Another fan buys from the secondary market. Peer-to-peer transfer, but securely routed through the contract."
+				},
+				"buyTicket()": {
+					"details": "2. Fans buy directly from the Box Office (Primary Market)."
+				},
+				"cancelResale(uint256)": {
+					"details": "Remove a ticket from the resale market."
+				},
+				"initializeEvent(string,uint256,uint256,uint256)": {
+					"details": "1. Organizer sets up the event."
+				},
+				"listForResale(uint256,uint256)": {
+					"details": "3. A fan can't make it. They list the ticket for resale. ANTI-SCALPING: The contract strictly enforces the price cap."
+				},
+				"scanTicket(uint256)": {
+					"details": "5. At the door: The Organizer scans the ticket. This destroys its value and prevents double-entry."
+				},
+				"withdrawBoxOfficeRevenue()": {
+					"details": "Organizer withdraws primary ticket sales revenue."
+				}
+			},
+			"title": "BaseTicket Protocol",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"arc_testnet/Anti-Scalping Ticket Contract_flattened.sol": "BaseTicket"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"arc_testnet/Anti-Scalping Ticket Contract_flattened.sol": {
+			"keccak256": "0x8b6a8269849928cc7e8cd32c91b0c45184cc29a6733666b81338e7f68829c048",
+			"urls": [
+				"bzz-raw://3dc963012c2ad22b8ee5e2ee08626b254ff86a8f7bb679c3b602e72e37c316ee",
+				"dweb:/ipfs/QmXqPX85MRqQcmhqaBLDk7vx8Ww4LLr3kqmdR7fwAHwGYm"
+			]
+		}
+	},
+	"version": 1
+}
