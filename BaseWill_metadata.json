@@ -1,0 +1,322 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "executor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalDistributed",
+						"type": "uint256"
+					}
+				],
+				"name": "InheritanceClaimed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "ProofOfLife",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "pingIntervalDays",
+						"type": "uint256"
+					}
+				],
+				"name": "VaultCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "VaultFunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountReturned",
+						"type": "uint256"
+					}
+				],
+				"name": "VaultRevoked",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_heirs",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_sharesBPS",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_pingIntervalDays",
+						"type": "uint256"
+					}
+				],
+				"name": "createVault",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vaultOwner",
+						"type": "address"
+					}
+				],
+				"name": "executeWill",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fundVault",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "getHeirs",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "wallet",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "shareBPS",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BaseWill.Heir[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "getTimeUntilUnlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ping",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "revokeVault",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "vaults",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastPing",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pingInterval",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Enterprise-grade Decentralized Estate Planning. Uses a \"Dead Man's Switch\" to automatically pass assets to heirs  if the owner fails to provide \"Proof of Life\" within a specified timeframe. Math: Uses Basis Points (BPS) for exact percentages. 10000 BPS = 100.00%.",
+			"kind": "dev",
+			"methods": {
+				"createVault(address[],uint256[],uint256)": {
+					"details": "1. Create your inheritance vault and set your beneficiaries.",
+					"params": {
+						"_heirs": "Array of wallet addresses to receive funds.",
+						"_pingIntervalDays": "How many days you have to ping the contract before it unlocks.",
+						"_sharesBPS": "Array of percentages (in Basis Points) for each heir. Must sum to 10000."
+					}
+				},
+				"executeWill(address)": {
+					"details": "4. Execute the Will. Anyone can call this IF the timer has expired. Funds are instantly routed to the heirs according to the exact mathematical shares.",
+					"params": {
+						"_vaultOwner": "The address of the person who created the vault."
+					}
+				},
+				"fundVault()": {
+					"details": "2. Fund the vault with ETH. Can be done anytime."
+				},
+				"ping()": {
+					"details": "3. Proof of Life. Resets the countdown timer."
+				},
+				"revokeVault()": {
+					"details": "5. Owner can cancel the will and withdraw all funds at any time while alive."
+				}
+			},
+			"title": "BaseWill Protocol",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"arc_testnet/Decentralized Will Contract.sol": "BaseWill"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		".deps/npm/@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"arc_testnet/Decentralized Will Contract.sol": {
+			"keccak256": "0x0675cf457296ff2a24060208eb858fe2827af60fe351ba8c007e813401d9042a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://75b2c2a688c85da954e5b110b4ac9c4591b73472b18f3fa9bd746dd6cef499f9",
+				"dweb:/ipfs/QmP4tsqLvtk7kvH155kmUM7u9973eumciaQn7rbQY5x891"
+			]
+		}
+	},
+	"version": 1
+}
